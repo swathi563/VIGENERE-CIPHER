@@ -72,7 +72,9 @@ int main()
 
 ## OUTPUT:
 Enter the plain text: Swathi
+
 Enter the keyword: mango
+
 Cipher text: EWNZVU
 
 
