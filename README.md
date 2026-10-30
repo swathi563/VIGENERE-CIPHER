@@ -1,14 +1,11 @@
 # VIGENERE-CIPHER
 ## EX. NO: 4
  
-
 ## IMPLEMETATION OF VIGENERE CIPHER
  
 
 ## AIM:
-
 To implement the Vigenere Cipher substitution technique using C program.
-
 ## DESCRIPTION:
 
 To encrypt, a table of alphabets can be used, termed a tabula recta, Vigenère square,or Vigenère table. It consists of the alphabet written out 26 times in differnt rows, each
@@ -28,9 +25,58 @@ STEP-6: Pick the first letter of the plain text and that of the keyword as the r
 STEP-7: The junction character where these two meet forms the cipher character.
 STEP-8: Repeat the above steps to generate the entire cipher text.
 
+## PROGRAM:
+```
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
-## PROGRAM
+int main()
+{
+    char text[100], key[100];
+    int i, j = 0, textLen, keyLen;
 
-## OUTPUT
+    printf("Enter the plain text: ");
+    scanf(" %99[^\n]", text);
 
-## RESULT
+    printf("Enter the keyword: ");
+    scanf(" %99s", key);
+
+    textLen = strlen(text);
+    keyLen = strlen(key);
+
+    printf("Cipher text: ");
+
+    for (i = 0; i < textLen; i++)
+    {
+        char ch = toupper(text[i]);
+        char k = toupper(key[j % keyLen]);
+
+        if (isalpha(ch))
+        {
+            char cipher = ((ch - 'A' + k - 'A') % 26) + 'A';
+            printf("%c", cipher);
+            j++;
+        }
+        else
+        {
+            printf("%c", ch);
+        }
+    }
+
+    printf("\n");
+
+    return 0;
+}
+```
+
+## OUTPUT:
+Enter the plain text: Swathi
+Enter the keyword: mango
+Cipher text: EWNZVU
+
+
+<img width="831" height="116" alt="image" src="https://github.com/user-attachments/assets/96a29428-73a1-4945-8875-2e1233391542" />
+
+## RESULT:
+Thus, the Vigenère Cipher substitution technique was successfully implemented using a C program.
